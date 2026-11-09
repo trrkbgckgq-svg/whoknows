@@ -1,0 +1,87 @@
+WHOKNOWS program: full test suite
+Run: 2026-11-08 (UTC), command: cargo test --features test-init
+Runtime: the compiled program inside a local Solana test runtime (solana-program-test)
+
+running 5 tests
+test amm::tests::extreme_values_dont_overflow ... ok
+test amm::tests::round_trip_never_profits_and_loses_only_rounding ... ok
+test amm::tests::sell_is_tight_and_keeps_the_product ... ok
+test curve::tests::isqrt_works ... ok
+test amm::tests::prices_add_up_and_buying_moves_the_odds ... ok
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
+running 15 tests
+test a01_buy_then_sell_same_tx_never_profits ... ok
+test a01b_sandwich_profit_bounded_and_min_coins_protects_victim ... ok
+test a03_split_sell_merge_no_arbitrage ... ok
+test a05_claim_attacks ... ok
+test a06_transfer_with_fee_then_sell_and_redeem ... ok
+test a04_redeem_attacks ... ok
+test a07_external_burn_does_not_break_solvency ... ok
+test a09_last_second_flip_gets_a_full_new_window ... ok
+test a10_fair_launch_cap ... ok
+test a10b_fair_launch_cap_multiple_buys_in_one_tx ... ok
+test a08_no_trading_after_close ... ok
+test a11_extreme_values ... ok
+test a02_fixed_dust_buys_cant_dodge_fees ... ok
+test a12_expire_pays_out_no_more_than_went_in ... ok
+test a12b_admin_cancel_pays_out_no_more_than_went_in ... ok
+test result: ok. 15 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
+running 12 tests
+test fixed_blank_admin_rejected ... ok
+test fixed_cancel_pays_average_price_not_last_trade ... ok
+test fixed_cancel_gets_fresh_window_and_can_be_corrected ... ok
+test fixed_fair_launch_cap_is_per_market ... ok
+test fixed_coin_side_cannot_be_spoofed ... ok
+test fixed_fee_wallet_is_fixed_per_market ... ok
+test limit_untrustworthy_first_update_falls_back_to_community ... ok
+test sound_mint_authorities_and_extensions ... ok
+test fixed_pyth_oracle_params_validated ... ok
+test oracle_correct_price_result_challenge_loses ... ok
+test sound_preinitialized_or_duplicate_mints_rejected ... ok
+test sound_redeem_needs_owner_not_delegate_and_works_from_non_ata ... ok
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
+running 6 tests
+test fixed_cancel_outsider_last_second_buy_loses ... ok
+test fixed_cancel_creator_cant_set_the_price ... ok
+test fixed_fair_launch_cap_holds_in_one_tx ... ok
+test fixed_dust_trades_pay_fees ... ok
+test limit_cancel_pays_a_price_that_held_all_market_long ... ok
+test limit_outside_burn_strands_value_only ... ok
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
+test write_fixtures ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
+test fuzz_random_markets ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
+running 13 tests
+test bad_pyth_price_is_rejected_then_a_good_one_resolves ... ok
+test admin_can_stop_trading_early_on_admin_markets_only ... ok
+test cancels_pay_the_average_price_and_admin_cancels_forfeit_creator_fees ... ok
+test coins_have_names_tickers_and_logos ... ok
+test every_market_opens_at_50_50_and_calling_against_the_crowd_pays_big ... ok
+test coin_addresses_must_end_with_the_brand_suffix ... ok
+test guards ... ok
+test full_market_yes_wins ... ok
+test losers_cant_beat_the_odds ... ok
+test quiet_markets_just_lock_and_the_creator_gets_the_seed_back ... ok
+test price_markets_resolve_from_pyth ... ok
+test split_and_merge_keep_a_pair_worth_exactly_one ... ok
+test results_become_final_and_live_markets_keep_their_rules ... ok
+test result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
+running 12 tests
+test bond_scales_with_market_size ... ok
+test copied_commitment_cannot_be_revealed ... ok
+test admin_and_creators_cannot_shortcut_the_oracle ... ok
+test juror_rules_late_stake_copy_votes_unbonding ... ok
+test jury_upholds_a_right_proposal ... ok
+test jury_overturns_a_wrong_proposal_and_pays_the_honest ... ok
+test price_market_has_nothing_to_dispute_before_a_result ... ok
+test no_quorum_restarts_rounds_then_invalid_with_bonds_back ... ok
+test too_early_reopens_and_invalid_cancels_at_the_average_price ... ok
+test unchallenged_proposal_becomes_final ... ok
+test slash_exposure_never_exceeds_stake ... ok
+test random_disputes_keep_everything_solvent ... ok
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
+
+Total: 65 passed, 0 failed

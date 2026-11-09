@@ -1,0 +1,20 @@
+WHOKNOWS program: 300,000-action random stress test
+Run: 2026-11-08 (UTC), started 06:46:58, all four parts finished about one hour later
+What it is: the program's randomized test, run inside a local Solana test runtime. Each market gets
+random buys, sells, tiny buys, coin transfers between wallets (with the transfer fee), time jumps and a
+random ending (YES, NO, expiry cancel or admin cancel), then everyone cashes out.
+
+Checked after EVERY action: total SOL across all wallets, the market and the fee wallet is unchanged,
+and the pool's value never goes down.
+Checked at the end of every market: losing coins never pay; every payout is exact; the creator is
+paid the pool exactly once; at most 10 lamports of rounding dust stays in the market; and the total
+SOL at the end equals the total at the start.
+
+Settings: 75 random actions per market, 4 parts of 1,000 markets each (different random seeds).
+
+Part markets 1-1000: 1000 markets, 75000 random actions (62735 went through, 12265 correctly refused). Result: ok, 0 failed, 0 panics, 60.7 min
+Part markets 1001-2000: 1000 markets, 75000 random actions (62655 went through, 12345 correctly refused). Result: ok, 0 failed, 0 panics, 60.7 min
+Part markets 2001-3000: 1000 markets, 75000 random actions (62711 went through, 12289 correctly refused). Result: ok, 0 failed, 0 panics, 60.8 min
+Part markets 3001-4000: 1000 markets, 75000 random actions (62559 went through, 12441 correctly refused). Result: ok, 0 failed, 0 panics, 60.6 min
+
+TOTAL: 4,000 markets, 300,000 random actions (250,660 went through, 49,340 correctly refused). 0 failures.
